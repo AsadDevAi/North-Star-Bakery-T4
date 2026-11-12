@@ -1,8 +1,3 @@
-/* ==========================================================================
-   North Star Bakery - Interactive Features, Storage & Form Validation
-   ========================================================================== */
-
-// 1. Data Structures (Arrays & Objects for Advanced Rubric Criteria)
 const bakeryProducts = [
   {
     id: "country-baguette",
@@ -50,7 +45,6 @@ const validationMessages = {
 let savedFavorites = [];
 let activeCategory = "all";
 
-// 2. Browser Storage Functions (localStorage)
 function loadFromStorage() {
   const storedItems = localStorage.getItem("nsb_saved_favorites");
   if (storedItems) {
@@ -66,7 +60,6 @@ function saveToStorage() {
   localStorage.setItem("nsb_saved_favorites", JSON.stringify(savedFavorites));
 }
 
-// 3. Interactive Feature Functions (Products Filtering & Pre-Order List)
 function toggleFavorite(productId) {
   const index = savedFavorites.indexOf(productId);
   if (index === -1) {
@@ -167,7 +160,6 @@ function initProductPage() {
   updateSavedSummary();
 }
 
-// 4. Pre-fill Contact Form from localStorage & Form Validation
 function prefillContactForm() {
   const itemDetailsField = document.getElementById("item-details");
   const requestTypeField = document.getElementById("request-type");
@@ -177,13 +169,11 @@ function prefillContactForm() {
 
   if (!itemDetailsField) return;
 
-  // Restore saved customer info if available
   const savedName = localStorage.getItem("nsb_customer_name");
   const savedEmail = localStorage.getItem("nsb_customer_email");
   if (savedName && nameField) nameField.value = savedName;
   if (savedEmail && emailField) emailField.value = savedEmail;
 
-  // Pre-fill saved bakery items if list is not empty
   if (savedFavorites.length > 0 && itemDetailsField.value.trim() === "") {
     const names = savedFavorites.map(id => {
       const found = bakeryProducts.find(p => p.id === id);
@@ -231,7 +221,6 @@ function validateContactForm(event) {
   let isValid = true;
   if (formSuccessBox) formSuccessBox.style.display = "none";
 
-  // Check 1: Required & Minimum Length for Name
   if (!nameInput || nameInput.value.trim().length < 3) {
     showFieldError(nameInput, "error-name", validationMessages.nameRequired);
     isValid = false;
@@ -239,7 +228,6 @@ function validateContactForm(event) {
     clearFieldError(nameInput, "error-name");
   }
 
-  // Check 2: Email Pattern Validation
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailInput || !emailPattern.test(emailInput.value.trim())) {
     showFieldError(emailInput, "error-email", validationMessages.emailInvalid);
@@ -248,7 +236,6 @@ function validateContactForm(event) {
     clearFieldError(emailInput, "error-email");
   }
 
-  // Check 3: Pickup Date Validation (Required & not in the past)
   const todayStr = new Date().toISOString().split("T")[0];
   if (!dateInput || !dateInput.value || dateInput.value < todayStr) {
     showFieldError(dateInput, "error-date", validationMessages.dateInvalid);
@@ -257,7 +244,6 @@ function validateContactForm(event) {
     clearFieldError(dateInput, "error-date");
   }
 
-  // Check 4: Request Type Required
   if (!typeInput || typeInput.value === "") {
     showFieldError(typeInput, "error-type", validationMessages.requestRequired);
     isValid = false;
@@ -265,7 +251,6 @@ function validateContactForm(event) {
     clearFieldError(typeInput, "error-type");
   }
 
-  // Check 5: Item Details Minimum Length
   if (!itemsInput || itemsInput.value.trim().length < 5) {
     showFieldError(itemsInput, "error-items", validationMessages.itemsShort);
     isValid = false;
@@ -292,7 +277,6 @@ function initContactPage() {
   form.addEventListener("submit", validateContactForm);
 }
 
-// 5. Initialize on DOM Load
 document.addEventListener("DOMContentLoaded", () => {
   loadFromStorage();
   initProductPage();

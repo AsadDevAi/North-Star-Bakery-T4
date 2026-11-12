@@ -296,9 +296,6 @@ footer p {
   }
 }
 
-/* ==========================================================================
-   Touchstone 4: Interactive Controls, Wishlist & Validation Feedback
-   ========================================================================== */
 .filter-controls {
   display: flex;
   flex-wrap: wrap;
@@ -386,7 +383,6 @@ footer p {
   cursor: pointer;
 }
 
-/* Validation Error & Success States */
 .error-msg {
   display: none;
   color: #B00020;
@@ -427,7 +423,6 @@ figure img {
   object-fit: cover;
 }
 
-/* Product Cards - Clean Horizontal Layout (No Shrinking) */
 .product-grid {
   display: flex;
   flex-direction: column;
