@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>North Star Bakery - Handcrafted Products</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="bakery-logo.png" alt="North Star Bakery artisanal logo with wheat crest" width="180">
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact &amp; Orders</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>Our Handcrafted Baked Goods</h1>
+            <p>Explore our seasonal menu made fresh daily using organic, locally milled flours and traditional time-tested baking techniques.</p>
+        </section>
+
+        <section>
+            <h2>Item of the Week: Signature Sourdough</h2>
+            <figure>
+                <img src="bakery-signature-loaf.png" alt="Golden brown crusty sourdough artisan boule scored with a wheat sheaf pattern on a cutting board">
+                <figcaption>Our Signature Sourdough Loaf - naturally fermented for 36 hours for exceptional crumb structure, flavor depth, and digestible goodness ($8.50).</figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <h2>Interactive Menu Filter &amp; Pre-Order Tracker</h2>
+            <div class="filter-controls" role="group" aria-label="Filter bakery menu">
+                <button type="button" class="filter-btn active" data-category="all">All Items</button>
+                <button type="button" class="filter-btn" data-category="breads">Breads</button>
+                <button type="button" class="filter-btn" data-category="pastries">Pastries</button>
+                <button type="button" class="filter-btn" data-category="cakes">Cakes</button>
+            </div>
+
+            <div id="saved-wishlist-box" class="wishlist-panel" aria-live="polite"></div>
+
+            <div id="dynamic-products-container" class="product-grid"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 North Star Bakery. All rights reserved. Handcrafted with care for our local community.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
